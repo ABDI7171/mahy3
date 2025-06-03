@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #6c63ff;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 1em;
+        }
+        nav button {
+            margin: 0 5px;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .container {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        form {
+            background: white;
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 2em;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.75em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            padding: 0.75em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        @media (max-width: 600px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            const texts = {
+                sv: {
+                    title: "Välkommen till Maida",
+                    content: "Detta är en mobilvänlig hemsida med flerspråkigt innehåll, bildgalleri och ett kontaktformulär.",
+                    contact: "Kontakta oss"
+                },
+                en: {
+                    title: "Welcome to Maida",
+                    content: "This is a mobile-friendly website with multilingual content, image gallery, and a contact form.",
+                    contact: "Contact us"
+                },
+                ar: {
+                    title: "مرحبًا بكم في مايدا",
+                    content: "هذا موقع متوافق مع الجوال يدعم عدة لغات ويحتوي على معرض صور ونموذج تواصل.",
+                    contact: "اتصل بنا"
+                }
+            };
+            document.getElementById("main-title").textContent = texts[lang].title;
+            document.getElementById("main-content").textContent = texts[lang].content;
+            document.getElementById("form-title").textContent = texts[lang].contact;
+        }
+    </script>
+</head>
+<body onload="changeLanguage('sv')">
+    <header>
+        <h1 id="main-title">Välkommen till Maida</h1>
+    </header>
+    <nav>
+        <button onclick="changeLanguage('sv')">Svenska</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('ar')">العربية</button>
+    </nav>
+    <div class="container">
+        <p id="main-content">Detta är en mobilvänlig hemsida med flerspråkigt innehåll, bildgalleri och ett kontaktformulär.</p>
+
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x200?text=Bild+1" alt="Bild 1">
+            <img src="https://via.placeholder.com/300x200?text=Bild+2" alt="Bild 2">
+            <img src="https://via.placeholder.com/300x200?text=Bild+3" alt="Bild 3">
+        </div>
+
+        <form>
+            <h2 id="form-title">Kontakta oss</h2>
+            <input type="text" name="namn" placeholder="Ditt namn" required />
+            <input type="email" name="epost" placeholder="Din e-post" required />
+            <textarea name="meddelande" rows="5" placeholder="Skriv ditt meddelande här..." required></textarea>
+            <button type="submit">Skicka</button>
+        </form>
+    </div>
+</body>
+</html>
